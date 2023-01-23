@@ -1,0 +1,42 @@
+Slip1 Q.1. Core Java: A) Write a ‘java’ program to display
+characters from ‘A’ to ‘Z’
+
+import java.io.*;
+class slip1
+{
+public static void main(String[] args) {
+char ch;
+for(ch = 'A'; ch <= 'Z';ch++)
+System.out.println("the alphabets are :"+ch);
+}
+}
+
+Slip 1 .B)Write a ‘java’ program to copy only non-numeric data
+from one file to another file
+
+import java.io.*;
+public class Slip1q2 {
+public static void main(String[] args) throws IOException {
+System.out.println("reading file...");
+FileReader fileReader = new
+FileReader("Slip1/src/sourcefile1q2.txt");
+// enter your source file location
+FileWriter fileWriter = new
+FileWriter("Slip1/src/destinationfile1Q2.txt");
+// enter your destination file location
+int data = fileReader.read();
+System.out.println("writing file...");
+while (data != -1){
+String content = String.valueOf((char)data);
+if(Character.isAlphabetic(data)) {
+fileWriter.append(content);
+}else if(content.equals(" ")){
+fileWriter.append(" ");
+}
+data = fileReader.read();
+}
+System.out.println("\nCOPY FINISHED SUCCESSFULLY...");
+fileWriter.close();
+fileReader.close();
+}
+}
